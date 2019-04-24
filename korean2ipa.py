@@ -87,11 +87,50 @@ def korOrthoSyllParser(Input):
             
             f = int((code - (initial * i) - (mid * m)))
             parsed.append(finals[f] + ".")
-            #print('종성: {}'.format(finals[f]))
             
         else:
             parsed.append(syll)
-   
+    # ㄳㄵㄶㄺㄻㄼㄽㄾㄿㅀㅄ 
+    # ㅘ,ㅙ,ㅚ,ㅝ,ㅞ,ㅟ,ㅢ
+    for i,seg in enumerate(parsed):
+        if seg == 'ㄳ.':
+            parsed[i] = 'ㄱㅅ.'
+        if seg == 'ㄵ.':
+            parsed[i] = 'ㄴㅈ.'
+        if seg == 'ㄶ.':
+            parsed[i] = 'ㄴㅎ.'
+        if seg == 'ㄺ.':
+            parsed[i] = 'ㄹㄱ.'
+        if seg == 'ㄻ.':
+            parsed[i] = 'ㄹㅁ.'
+        if seg == 'ㄼ.':
+            parsed[i] = 'ㄹㅂ.'
+        if seg == 'ㄽ.':
+            parsed[i] = 'ㄹㅅ.'
+        if seg == 'ㄾ.':
+            parsed[i] = 'ㄹㅌ.'
+        if seg == 'ㄿ.':
+            parsed[i] = 'ㄹㅍ.'
+        if seg == 'ㅀ.':
+            parsed[i] = 'ㄹㅎ.'
+        if seg == 'ㅄ.':
+            parsed[i] = 'ㅂㅅ.'
+            
+        if seg == 'ㅘ':
+            parsed[i] = 'ㅗㅏ'
+        if seg == 'ㅙ':
+            parsed[i] = 'ㅗㅐ'
+        if seg == 'ㅚ':
+            parsed[i] = 'ㅗㅣ'
+        if seg == 'ㅝ':
+            parsed[i] = 'ㅜㅓ'
+        if seg == 'ㅞ':
+            parsed[i] = 'ㅜㅔ'
+        if seg == 'ㅟ':
+            parsed[i] = 'ㅜㅣ'
+        if seg == 'ㅢ':
+            parsed[i] = 'ㅡㅣ' 
+    
     allparsed = "".join(parsed)
     
     return allparsed
